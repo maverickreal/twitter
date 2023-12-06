@@ -3,6 +3,7 @@ package org.twitter.backend.services.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.twitter.backend.data_transfer_objects.registeration_dto.RegisterationDto;
+import org.twitter.backend.exceptions.Incorrect_Verification_code.IncorrectVerificationCodeException;
 import org.twitter.backend.exceptions.email_already_used.EmailAlreadyUsedException;
 import org.twitter.backend.exceptions.email_sending_failure.EmailSendingFailureException;
 import org.twitter.backend.exceptions.user_does_not_exist_exception.UserDoesNotExistException;
@@ -67,5 +68,16 @@ public class UserService {
 
     private static Long generateEmailVerificationCode() {
         return (long) Math.floor(Math.random() * 1_000_000_000);
+    }
+
+    public ApplicationUserModel verifyEmail(String username, Long code) {
+        ApplicationUserModel user = userRepo.findByUsername(username).orElseThrow(UserDoesNotExistException::new);
+        if (code.equals(user.getVerification())) {
+            user.setVerification(null);
+            user.setEnabled(true);
+            userRepo.save(user);
+            return user;
+        }
+        throw new IncorrectVerificationCodeException();
     }
 }
