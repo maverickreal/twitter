@@ -16,3 +16,8 @@ export const displayIcon: React.FC<number> = (step) => {
             return <></>;
     }
 }
+
+export const iconStyleClass = (step: number) => {
+    if (step == 4 || step == 6) return 'reg-step-counter-btn-disabled';
+    else return 'reg-step-counter-btn';
+}
