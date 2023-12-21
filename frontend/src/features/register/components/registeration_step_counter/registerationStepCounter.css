@@ -1,0 +1,29 @@
+.reg-step-counter-container {
+    z-index: 2;
+    display: flex;
+    padding: 1em;
+}
+
+.reg-step-counter-btn {
+    z-index: 2;
+    height: 2.5em;
+    width: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reg-step-counter-btn:hover {
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.reg-step-num {
+    font-size: 1.25em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

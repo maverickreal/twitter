@@ -1,0 +1,16 @@
+.modal-overlay {
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container {
+    height: 40.5em;
+    width: 37em;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    border-radius: 1.25em;
+}

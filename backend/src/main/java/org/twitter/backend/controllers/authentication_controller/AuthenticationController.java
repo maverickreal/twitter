@@ -68,4 +68,9 @@ public class AuthenticationController {
         return userService.verifyEmail(username, code);
     }
 
+    @PatchMapping("/update/password")
+    public ApplicationUserModel updatePassword(@RequestBody LinkedHashMap<String, String> body) {
+        String username = body.get("username"), password = body.get("password");
+        return userService.updatePassword(username, password);
+    }
 }

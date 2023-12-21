@@ -8,7 +8,6 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.twitter.backend.exceptions.email_sending_failure.EmailSendingFailureException;
-
 import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.model.Message;
 import com.google.common.io.BaseEncoding;

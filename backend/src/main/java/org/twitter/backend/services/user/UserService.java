@@ -1,11 +1,11 @@
 package org.twitter.backend.services.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.twitter.backend.data_transfer_objects.registeration_dto.RegisterationDto;
 import org.twitter.backend.exceptions.Incorrect_Verification_code.IncorrectVerificationCodeException;
 import org.twitter.backend.exceptions.email_already_used.EmailAlreadyUsedException;
-import org.twitter.backend.exceptions.email_sending_failure.EmailSendingFailureException;
 import org.twitter.backend.exceptions.user_does_not_exist_exception.UserDoesNotExistException;
 import org.twitter.backend.models.application_user.ApplicationUserModel;
 import org.twitter.backend.repositories.role.RoleRepository;
@@ -18,6 +18,9 @@ public class UserService {
         Long numericCode = (long) Math.floor(Math.random() * 1_000_000_000);
         return name + numericCode;
     }
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private UserRepository userRepo;
@@ -79,5 +82,11 @@ public class UserService {
             return user;
         }
         throw new IncorrectVerificationCodeException();
+    }
+
+    public ApplicationUserModel updatePassword(String username, String password) {
+        ApplicationUserModel user = userRepo.findByUsername(username).orElseThrow(UserDoesNotExistException::new);
+        user.setPassword(passwordEncoder.encode(password));
+        return userRepo.save(user);
     }
 }
