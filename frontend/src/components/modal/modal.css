@@ -9,8 +9,5 @@
 .modal-container {
     height: 40.5em;
     width: 37em;
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
     border-radius: 1.25em;
 }

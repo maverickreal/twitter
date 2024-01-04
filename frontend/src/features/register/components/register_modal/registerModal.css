@@ -1,0 +1,5 @@
+.register-modal-content {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}

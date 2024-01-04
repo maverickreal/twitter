@@ -1,7 +1,6 @@
-import React from "react";
 import { ClearRounded, ArrowBackRounded } from "@mui/icons-material";
 
-export const displayIcon: React.FC<number> = (step) => {
+export const displayIcon = (step: number) => {
     const styleConfig = { fontSize: '1.5em' };
     switch (step) {
         case 1:
@@ -15,9 +14,11 @@ export const displayIcon: React.FC<number> = (step) => {
         default:
             return <></>;
     }
-}
+};
 
 export const iconStyleClass = (step: number) => {
-    if (step == 4 || step == 6) return 'reg-step-counter-btn-disabled';
-    else return 'reg-step-counter-btn';
+    if (step == 5 || step == 3 || step == 2 || step == 1)
+        return 'reg-step-counter-btn';
+    else
+        return 'reg-step-counter-btn-disabled';
 }
