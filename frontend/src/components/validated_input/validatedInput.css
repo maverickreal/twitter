@@ -4,11 +4,11 @@
 
 .validated-input-value {
     position: absolute;
-    bottom: 5px;
     left: 10px;
+    top: 10px;
     width: 90%;
     line-height: 26px;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 300;
     background-color: rgba(256, 256, 256, 0);
     border: none;
