@@ -1,1 +1,1 @@
-export { Home } from './home/Home.tsx';
+export { Landing } from './landing/Landing.tsx';
