@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { StyledInputBox, StyledInputLabel } from './StyledInput';
 import './validatedInput.css';
 import '../../../index.css';
-import { determineValidatedStyles, validatedInputState } from '../../utils';
+import { determineValidatedStyles, validatedInputStateInterface } from '../../utils';
 
 interface validatedInputUserProps {
     name: string,
@@ -14,7 +14,7 @@ interface validatedInputUserProps {
 };
 
 export const ValidatedInput: React.FC<validatedInputUserProps> = ({ label, errorMessage, attr, changeValue, validator }) => {
-    const [validatedState, setValidatedState] = useState<validatedInputState>({
+    const [validatedState, setValidatedState] = useState<validatedInputStateInterface>({
         active: false,
         valid: true,
         typedIn: false,

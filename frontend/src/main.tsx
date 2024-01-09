@@ -1,7 +1,11 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './App';
+import { Provider } from 'react-redux';
+import { Store } from './redux/store';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <StrictMode><App /></StrictMode>
+  <Provider store={Store}>
+    <StrictMode><App /></StrictMode>
+  </Provider>
 );

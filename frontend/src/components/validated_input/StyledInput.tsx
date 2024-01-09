@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { StyledInputProps, determineLabelColor, determineStyledInputBorder } from '../../utils';
+import { StyledInputPropsInterface, determineLabelColor, determineStyledInputBorder } from '../../utils';
 
-export const StyledInputBox = styled.div<StyledInputProps>`
+export const StyledInputBox = styled.div<StyledInputPropsInterface>`
 position:relative;
 border-radius:5px;
 width:100%;
@@ -9,7 +9,7 @@ height:56px;
 border:${determineStyledInputBorder}
 `;
 
-export const StyledInputLabel = styled.span<StyledInputProps>`
+export const StyledInputLabel = styled.span<StyledInputPropsInterface>`
 position:absolute;
 left:10px;
 font-weight:400;

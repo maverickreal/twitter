@@ -1,8 +1,8 @@
 import { Landing } from './pages';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { Theme } from './utils/index';
+import { ThemeInterface } from './utils/index';
 
-const theme: Theme = {
+const theme: ThemeInterface = {
     colors: {
         blue: '#1DA1F2',
         black: '#14171a',

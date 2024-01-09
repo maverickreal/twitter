@@ -1,1 +1,1 @@
-export * from './validators/Validators';
+export { validateName } from './validators/Validators';

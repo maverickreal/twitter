@@ -1,4 +1,4 @@
-interface ThemeColors extends Record<string, string | boolean> {
+interface ThemeColorsInterface extends Record<string, string | boolean> {
     blue: string,
     black: string,
     darkGray: string,
@@ -8,18 +8,18 @@ interface ThemeColors extends Record<string, string | boolean> {
     error: string
 };
 
-export interface Theme {
-    colors: ThemeColors
+export interface ThemeInterface {
+    colors: ThemeColorsInterface
 };
 
-export interface StyledInputProps {
+export interface StyledInputPropsInterface {
     active: boolean,
     valid: boolean,
-    theme: Theme,
+    theme: ThemeInterface,
     color?: string
 };
 
-export interface validatedInputState extends Record<string, boolean | string> {
+export interface validatedInputStateInterface extends Record<string, boolean | string> {
     active: boolean,
     valid: boolean,
     typedIn: boolean,
@@ -28,7 +28,7 @@ export interface validatedInputState extends Record<string, boolean | string> {
     value: string
 };
 
-export interface Date extends Record<string, number> {
+export interface DateInterface extends Record<string, number> {
     day: number,
     month: number,
     year: number
