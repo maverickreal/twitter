@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { DateInterface } from "../../utils/global_interfaces/GlobalInterfaces";
+import { DateInterface } from "../../utils";
 
 interface RegisterSliceState {
     loading: boolean,
@@ -16,7 +16,7 @@ interface RegisterSliceState {
 
 interface UpdatePayload {
     name: string,
-    value: number // ??? string | boolean
+    value: string | number | boolean
 };
 
 const initialState: RegisterSliceState = {

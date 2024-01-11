@@ -1,4 +1,4 @@
-import { DateInterface } from "..";
+import { DateInterface } from "../../..";
 
 export class DateUtils extends Date {
     constructor() {

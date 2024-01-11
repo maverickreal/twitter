@@ -1,14 +1,15 @@
-import { useState } from "react";
+/*import { useState } from "react";
+import { InputChangeEvent } from "../../utils";
 
 interface TextInputProps {
     name: string, label: string, errorMessage: string,
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    onChange: (e: InputChangeEvent) => void,
     maxLength?: number, validator?: (value: string) => boolean
 }
 
 export const TextInput = ({ name, label, onChange }: TextInputProps) => {
     const [inputValue, setInputValue] = useState<string>("");
-    const updateInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const updateInputValue = (e: InputChangeEvent) => {
         onChange(e);
         setInputValue(e.target.value);
     }
@@ -21,4 +22,4 @@ export const TextInput = ({ name, label, onChange }: TextInputProps) => {
             </div>
         </div>
     );
-}
+}*/ // ??? need or not

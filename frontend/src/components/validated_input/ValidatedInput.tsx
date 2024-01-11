@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
+/*import { useEffect, useState } from 'react';
 import { StyledInputBox, StyledInputLabel } from './StyledInput';
 import './validatedInput.css';
 import '../../../index.css';
-import { determineValidatedStyles, validatedInputStateInterface } from '../../utils';
+import { InputChangeEvent, determineValidatedStyles, validatedInputStateInterface } from '../../utils';
 
 interface validatedInputUserProps {
     name: string,
     label: string,
     errorMessage: string,
     validator(value: string): boolean,
-    changeValue(e: React.ChangeEvent<HTMLInputElement>): void,
+    changeValue(e: InputChangeEvent): void,
     attr?: Record<string, string | number | boolean>
 };
 
@@ -26,7 +26,7 @@ export const ValidatedInput: React.FC<validatedInputUserProps> = ({ label, error
     const focus = () => {
         setValidatedState({ ...validatedState, active: !validatedState?.active });
     }
-    const updateValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const updateValue = (e: InputChangeEvent) => {
         setValidatedState({
             ...validatedState, typedIn: true, value: e.target.value
         });
@@ -41,4 +41,4 @@ export const ValidatedInput: React.FC<validatedInputUserProps> = ({ label, error
             {validatedState.valid ? <></> : <span>{errorMessage}</span>}
         </div>
     );
-}
+}*/ // ??? need or not

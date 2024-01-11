@@ -1,4 +1,4 @@
-import { DateUtils } from "..";
+import { DateInterface, DateUtils } from "../../..";
 
 export class AgeUtils {
     dateUtils: DateUtils;
@@ -29,5 +29,12 @@ export class AgeUtils {
             options.push(<option value={i} key={i}>{i}</option>)
         }
         return options;
+    }
+    isAgeElgible(dob: DateInterface) {
+        const { day, month, year } = dob;
+        const yearDiff = this.dateUtils.getYear() - year;
+        if (yearDiff !== 16) return yearDiff > 16;
+        if (month != this.dateUtils.getMonth()) return month < this.dateUtils.getMonth();
+        return day <= this.dateUtils.getDate();
     }
 };

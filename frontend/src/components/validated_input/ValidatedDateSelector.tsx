@@ -10,7 +10,9 @@ interface ValidatedDateSelectorProps {
     dispatcher(name: string, value: string | number | boolean): void
 };
 
-export const ValidatedDateSelector: React.FC<ValidatedDateSelectorProps> = ({ style, name, valid, dropDown, dispatcher }) => {
+export const ValidatedDateSelector: React.FC<ValidatedDateSelectorProps> = (
+    { style, name, valid, dropDown, dispatcher }
+) => {
     const [active, setActive] = useState(false);
     const [value, setValue] = useState(0);
     const [color, setColor] = useState('gray');

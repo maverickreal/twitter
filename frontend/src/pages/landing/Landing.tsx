@@ -1,3 +1,3 @@
-import { RegisterModal } from '../../features/register/components/register_modal/RegisterModal';
+import { RegisterModal } from "../../features/register/components";
 
 export const Landing = () => (<RegisterModal />);

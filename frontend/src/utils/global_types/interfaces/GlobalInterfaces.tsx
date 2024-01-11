@@ -1,4 +1,4 @@
-interface ThemeColorsInterface extends Record<string, string | boolean> {
+interface ThemeColorsInterface {
     blue: string,
     black: string,
     darkGray: string,
@@ -19,7 +19,7 @@ export interface StyledInputPropsInterface {
     color?: string
 };
 
-export interface validatedInputStateInterface extends Record<string, boolean | string> {
+export interface validatedInputStateInterface {
     active: boolean,
     valid: boolean,
     typedIn: boolean,
@@ -28,7 +28,7 @@ export interface validatedInputStateInterface extends Record<string, boolean | s
     value: string
 };
 
-export interface DateInterface extends Record<string, number> {
+export interface DateInterface {
     day: number,
     month: number,
     year: number

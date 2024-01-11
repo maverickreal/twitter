@@ -4,8 +4,8 @@ import { useState } from "react";
 import './RegisterModal.css';
 import { determineModalContent } from "../utils/RegisterModalUtils";
 
-export const RegisterModal: React.FC = () => {
-    const [step, setStep] = useState<number>(1);
+export const RegisterModal = () => {
+    const [step, setStep] = useState(1);
     const changeStep = () => {
         if (step == 2 || step == 3 || step == 5) {
             setStep(step - 1);
