@@ -1,6 +1,6 @@
 import { RegisterFormOne } from "../register_form_one/RegisterFormOne";
 
-export const determineModalContent = (step: number) => {
+export const determineModalContent = (step: number): JSX.Element | string => {
     switch (step) {
         case 1:
             return <RegisterFormOne />;
@@ -17,4 +17,4 @@ export const determineModalContent = (step: number) => {
         default:
             return <></>;
     }
-}
+};

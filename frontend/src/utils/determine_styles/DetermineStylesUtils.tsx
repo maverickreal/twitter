@@ -1,6 +1,6 @@
 import { StyledInputPropsInterface, validatedInputStateInterface } from "../index";
 
-export const determineStyledInputBorder = (props: StyledInputPropsInterface) => {
+export const determineStyledInputBorder = (props: StyledInputPropsInterface): string => {
     const { active, valid, theme } = props;
     let color = theme.colors.error;
 
@@ -12,7 +12,7 @@ export const determineStyledInputBorder = (props: StyledInputPropsInterface) => 
     return `${size}px solid ${color}`;
 };
 
-export const determineLabelColor = (props: StyledInputPropsInterface) => {
+export const determineLabelColor = (props: StyledInputPropsInterface): string => {
     const { theme, color } = props;
     if (color === 'error') return theme.colors.error;
     if (color === 'blue') return theme.colors.blue;
@@ -49,13 +49,13 @@ export const determineLabelColor = (props: StyledInputPropsInterface) => {
     return state;
 }*/ // ??? need or not
 
-export const determineValidatedSelectStyle = (active: boolean, valid: boolean) => {
+export const determineValidatedSelectStyle = (active: boolean, valid: boolean): string => {
     if (!valid) return 'error';
     if (active) return 'blue';
     return 'gray';
 }
 
-export const determineValidatedTextLabel = (active: boolean, valid: boolean) => {
+export const determineValidatedTextLabel = (active: boolean, valid: boolean): string => {
     if (!valid && active) return 'error';
     if (valid && active) return 'blue';
     return 'gray';

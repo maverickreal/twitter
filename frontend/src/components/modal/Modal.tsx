@@ -5,10 +5,12 @@ interface ModalProps {
     children: React.ReactNode;
 };
 
-export const Modal = (props: ModalProps) => (
-    <div className="modal-overlay">
-        <div className="modal-container bg-color">
-            {props.children}
+export const Modal = (props: ModalProps): JSX.Element => {
+    return (
+        <div className="modal-overlay">
+            <div className="modal-container bg-color">
+                {props.children}
+            </div>
         </div>
-    </div>
-);
+    );
+};

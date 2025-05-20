@@ -6,7 +6,7 @@ import { updateRegister } from "../../../../redux/slices/RegisterSlice";
 import { validateName } from "../../../../services";
 import { InputChangeEvent } from "../../../../utils";
 
-export const RegisterNameInputs = () => {
+export const RegisterNameInputs = (): JSX.Element => {
     const [firstNameValid, setFirstNameValid] = useState(true);
     const [lastNameValid, setLastNameValid] = useState(true);
 

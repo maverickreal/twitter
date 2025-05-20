@@ -6,7 +6,7 @@ import { updateRegister } from "../../../../redux/slices/RegisterSlice";
 import { validateEmail } from "../../../../services/validators/Validators";
 import { InputChangeEvent } from "../../../../utils";
 
-export const RegisterEmailInput = () => {
+export const RegisterEmailInput = (): JSX.Element => {
     const [validEmail, setValidEmail] = useState(true);
     const dispatch: AppDispatch = useDispatch();
 

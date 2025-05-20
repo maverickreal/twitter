@@ -10,16 +10,16 @@ import org.twitter.backend.repositories.user.UserRepository;
 import org.twitter.backend.services.user.UserService;
 
 @SpringBootApplication
-public class BackendApplication {
+public class Main {
 	public static void main(String[] args) {
-		SpringApplication.run(BackendApplication.class, args);
+		SpringApplication.run(Main.class, args);
 	}
 
 	@Bean
 	CommandLineRunner run(RoleRepository roleRepo, UserRepository userRepo, UserService userService) {
 		return args -> {
 			roleRepo.save(new RoleModel(1, "ROLE_USER"));
-			// ApplicationUserModel user = new ApplicationUserModel();
+			// ApplicationUserModel       user = new ApplicationUserModel();
 			// user.setFirstName("John");
 			// user.setLastName("Doe");
 			// userService.registerUser(user);

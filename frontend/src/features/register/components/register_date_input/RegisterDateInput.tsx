@@ -5,7 +5,7 @@ import { AgeUtils } from "../../../../utils";
 import { updateRegister } from "../../../../redux/slices/RegisterSlice";
 import { useEffect, useState } from "react";
 
-export const RegisterDateInput = () => {
+export const RegisterDateInput = (): JSX.Element => {
     const state = useSelector((state: RootState) => state.register);
     const dispatch: AppDispatch = useDispatch();
     const [valid, setValid] = useState(true);

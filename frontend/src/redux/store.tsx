@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { reducer } from "./slices/RegisterSlice";
+import registerSlice from "./slices/RegisterSlice";
 
 export const Store = configureStore({
-    reducer: { register: reducer }
+    reducer: { register: registerSlice },
 });
 
 export type RootState = ReturnType<typeof Store.getState>;

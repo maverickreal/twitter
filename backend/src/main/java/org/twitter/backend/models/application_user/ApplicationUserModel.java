@@ -22,7 +22,7 @@ import jakarta.persistence.JoinColumn;
 @Data
 public class ApplicationUserModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name = "user_id")
     private Integer userId;
     @Column(name = "first_name")

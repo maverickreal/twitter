@@ -7,7 +7,7 @@ import { RegisterEmailInput, RegisterNameInputs } from '..';
 //     email: string, dateOfBirth: string
 // }
 
-export const RegisterFormOne = () => {
+export const RegisterFormOne = (): JSX.Element => {
     // const [stepOneState, setStepOneState] = useState({
     //     firstName: '',
     //     lastName: '',

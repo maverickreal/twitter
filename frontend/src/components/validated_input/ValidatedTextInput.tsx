@@ -9,7 +9,7 @@ interface ValidatedTextInputProps {
     changeValue(e: InputChangeEvent): void;
 };
 
-export const ValidatedTextInput: React.FC<ValidatedTextInputProps> = ({ valid, name, label, changeValue }) => {
+export const ValidatedTextInput: React.FC<ValidatedTextInputProps> = ({ valid, name, label, changeValue }): JSX.Element => {
     const [value, setValue] = useState('');
     const [borderActive, setBorderActive] = useState(false);
     const [labelActive, setLabelActive] = useState(false);

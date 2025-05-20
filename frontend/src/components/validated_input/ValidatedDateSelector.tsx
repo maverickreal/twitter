@@ -12,7 +12,7 @@ interface ValidatedDateSelectorProps {
 
 export const ValidatedDateSelector: React.FC<ValidatedDateSelectorProps> = (
     { style, name, valid, dropDown, dispatcher }
-) => {
+): JSX.Element => {
     const [active, setActive] = useState(false);
     const [value, setValue] = useState(0);
     const [color, setColor] = useState('gray');
@@ -25,9 +25,12 @@ export const ValidatedDateSelector: React.FC<ValidatedDateSelectorProps> = (
     };
 
     const toggleValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setActive(!active);
+        setActive(_active => !_active);
     }
-    useEffect(() => setColor(determineValidatedSelectStyle(active, valid)), [active, valid, value]);
+
+    useEffect(() => {
+        setColor(determineValidatedSelectStyle(active, valid));
+    }, [active, valid, value]);
 
     return (
         <div className={style}>

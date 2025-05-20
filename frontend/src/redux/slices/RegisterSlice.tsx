@@ -32,10 +32,13 @@ const initialState: RegisterSliceState = {
     dateOfBirthValid: false
 };
 
-const slice = createSlice({
-    name: 'register', initialState, reducers: {
+const registerSlice = createSlice({
+    name: 'register',
+    initialState,
+    reducers: {
         updateRegister: (state, action: PayloadAction<UpdatePayload>) => {
             const { name, value } = action.payload;
+
             if (name === 'day' || name === 'month' || name === 'year') {
                 const dateOfBirth = {
                     ...state.dateOfBirth, [name]: value
@@ -52,5 +55,5 @@ const slice = createSlice({
     }
 });
 
-export const { reducer } = slice;
-export const { updateRegister } = slice.actions;
+export default registerSlice.reducer;
+export const { updateRegister } = registerSlice.actions;
