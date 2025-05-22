@@ -13,15 +13,15 @@ export interface ThemeInterface {
 };
 
 export interface StyledInputPropsInterface {
-    active: boolean,
-    valid: boolean,
+    $active: boolean,
+    $valid: boolean,
     theme: ThemeInterface,
     color?: string
 };
 
 export interface validatedInputStateInterface {
-    active: boolean,
-    valid: boolean,
+    $active: boolean,
+    $valid: boolean,
     typedIn: boolean,
     labelActive: boolean,
     labelColor: string,

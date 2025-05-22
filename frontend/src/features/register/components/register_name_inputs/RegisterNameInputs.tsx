@@ -6,7 +6,7 @@ import { updateRegister } from "../../../../redux/slices/RegisterSlice";
 import { validateName } from "../../../../services";
 import { InputChangeEvent } from "../../../../utils";
 
-export const RegisterNameInputs = (): JSX.Element => {
+export const RegisterNameInputs: React.FC = () => {
     const [firstNameValid, setFirstNameValid] = useState(true);
     const [lastNameValid, setLastNameValid] = useState(true);
 
@@ -14,9 +14,13 @@ export const RegisterNameInputs = (): JSX.Element => {
 
     const updateName = (e: InputChangeEvent) => {
         const { name, value } = e.target;
-        if (name !== 'firstName' && name !== 'lastName') return;
+
+        if (name !== 'firstName' && name !== 'lastName') {
+            return;
+        }
         dispatch(updateRegister({ name, value }));
         const valid = validateName(value);
+
         if (name === 'firstName') {
             setFirstNameValid(valid);
         } else {
@@ -27,8 +31,15 @@ export const RegisterNameInputs = (): JSX.Element => {
 
     return (
         <div className="register-name-input">
-            <ValidatedTextInput valid={firstNameValid} name={'firstName'} label={'First Name'} changeValue={updateName} />
-            <ValidatedTextInput valid={lastNameValid} name={'lastName'} label={'Last Name'} changeValue={updateName} />
+            <ValidatedTextInput valid={firstNameValid}
+                name={'firstName'}
+                label={'First Name'}
+                changeValue={updateName} />
+
+            <ValidatedTextInput valid={lastNameValid}
+                name={'lastName'}
+                label={'Last Name'}
+                changeValue={updateName} />
         </div>
     )
-}
+};

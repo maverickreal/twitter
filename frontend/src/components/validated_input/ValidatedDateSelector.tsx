@@ -24,7 +24,7 @@ export const ValidatedDateSelector: React.FC<ValidatedDateSelectorProps> = (
         dispatcher(name.toLowerCase(), e.target.value);
     };
 
-    const toggleValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const toggleValue = () => {
         setActive(_active => !_active);
     }
 
@@ -34,8 +34,8 @@ export const ValidatedDateSelector: React.FC<ValidatedDateSelectorProps> = (
 
     return (
         <div className={style}>
-            <StyledInputBox active={active} valid={valid}>
-                <StyledInputLabel color={color} active={true} valid={valid}>
+            <StyledInputBox $active={active} $valid={valid}>
+                <StyledInputLabel color={color} $active={true} $valid={valid}>
                     {name}
                 </StyledInputLabel>
                 <select className="validated-input-value text-color" onChange={changeValue} onFocus={toggleValue} onBlur={toggleValue}>
