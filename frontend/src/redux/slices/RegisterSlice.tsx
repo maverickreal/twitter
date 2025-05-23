@@ -2,21 +2,22 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { DateInterface } from "../../utils";
 
 interface RegisterSliceState {
-    loading: boolean,
-    error: boolean,
-    firstName: string,
-    firstNameValid: boolean,
-    lastName: string,
-    lastNameValid: boolean,
-    email: string,
-    emailValid: boolean,
-    dateOfBirth: DateInterface,
-    dateOfBirthValid: boolean
+    loading: boolean;
+    error: boolean;
+    firstName: string;
+    firstNameValid: boolean;
+    lastName: string;
+    lastNameValid: boolean;
+    email: string;
+    emailValid: boolean;
+    dateOfBirth: DateInterface;
+    dateOfBirthValid: boolean;
+    step: number;
 };
 
 interface UpdatePayload {
-    name: string,
-    value: string | number | boolean
+    name: string;
+    value: string | number | boolean;
 };
 
 const initialState: RegisterSliceState = {
@@ -29,7 +30,8 @@ const initialState: RegisterSliceState = {
     email: "",
     emailValid: false,
     dateOfBirth: { day: 0, month: 0, year: 0 },
-    dateOfBirthValid: false
+    dateOfBirthValid: false,
+    step: 1
 };
 
 const registerSlice = createSlice({
@@ -51,9 +53,19 @@ const registerSlice = createSlice({
             }
             console.log('Updating the global state.', state);
             return state;
+        },
+        incrementStep: state => {
+            ++state.step;
+            return state;
+        },
+        decrementStep: state => {
+            if (state.step !== 1 && state.step !== 4 && state.step < 6) {
+                --state.step;
+            }
+            return state;
         }
     }
 });
 
 export default registerSlice.reducer;
-export const { updateRegister } = registerSlice.actions;
+export const { updateRegister, incrementStep, decrementStep } = registerSlice.actions;

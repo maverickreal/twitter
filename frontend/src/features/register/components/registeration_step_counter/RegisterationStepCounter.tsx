@@ -2,16 +2,18 @@ import { displayIcon, iconStyleClass } from "../utils/RegisterStepUtils";
 import './registerationStepCounter.css';
 
 interface RegisterationProps {
-    step: number, changeStep(): void
+    step: number;
+    changeStep(): void;
 };
 
-export const RegisterationStepCounter = (attr: RegisterationProps): JSX.Element => {
+export const RegisterationStepCounter: React.FC<RegisterationProps> = ({ step, changeStep }) => {
     return (
         <div className="reg-step-counter-container">
-            <div className={iconStyleClass(attr.step)} onClick={attr.changeStep}>
-                {displayIcon(attr.step)}
+            <div className={iconStyleClass(step)} onClick={changeStep}>
+                {displayIcon(step)}
             </div>
-            <div className="reg-step-num">Step {attr.step} of 6</div>
+
+            <div className="reg-step-num">Step {step} of 6</div>
         </div >
     );
-}
+};

@@ -1,35 +1,41 @@
 interface ThemeColorsInterface {
-    blue: string,
-    black: string,
-    darkGray: string,
-    lightGray: string,
-    white: string,
-    gray: string,
-    error: string
+    blue: string;
+    black: string;
+    darkGray: string;
+    lightGray: string;
+    white: string;
+    gray: string;
+    error: string;
 };
 
 export interface ThemeInterface {
-    colors: ThemeColorsInterface
+    colors: ThemeColorsInterface;
 };
 
 export interface StyledInputPropsInterface {
-    $active: boolean,
-    $valid: boolean,
-    theme: ThemeInterface,
-    color?: string
+    $active: boolean;
+    $valid: boolean;
+    theme: ThemeInterface;
+    color?: string;
 };
 
 export interface validatedInputStateInterface {
-    $active: boolean,
-    $valid: boolean,
-    typedIn: boolean,
-    labelActive: boolean,
-    labelColor: string,
-    value: string
+    $active: boolean;
+    $valid: boolean;
+    typedIn: boolean;
+    labelActive: boolean;
+    labelColor: string;
+    value: string;
 };
 
 export interface DateInterface {
-    day: number,
-    month: number,
-    year: number
+    day: number;
+    month: number;
+    year: number;
+};
+
+export interface StyledNextButtonProps {
+    $active: boolean;
+    color: string;
+    theme: ThemeInterface;
 };

@@ -4,8 +4,13 @@ import { AppDispatch, RootState } from "../../../../redux/store";
 import { AgeUtils } from "../../../../utils";
 import { updateRegister } from "../../../../redux/slices/RegisterSlice";
 import { useEffect, useState } from "react";
+import { DateInterface } from "../../utils/../../../utils/global_types/interfaces/GlobalInterfaces";
 
-export const RegisterDateInput = (): JSX.Element => {
+interface RegisterDateInputProps {
+    date: DateInterface;
+};
+
+export const RegisterDateInput: React.FC<RegisterDateInputProps> = ({ date }) => {
     const state = useSelector((state: RootState) => state.register);
     const dispatch: AppDispatch = useDispatch();
     const [valid, setValid] = useState(true);
@@ -21,9 +26,29 @@ export const RegisterDateInput = (): JSX.Element => {
 
     return (
         <div className="register-date">
-            <ValidatedDateSelector dispatcher={updateState} style={'validated-day'} valid={valid} name={'Day'} dropDown={() => ageUtils.getDays()} />
-            <ValidatedDateSelector dispatcher={updateState} style={'validated-month'} valid={valid} name={'Month'} dropDown={() => ageUtils.getMonths()} />
-            <ValidatedDateSelector dispatcher={updateState} style={'validated-year'} valid={valid} name={'Year'} dropDown={() => ageUtils.getYears()} />
+            <ValidatedDateSelector
+                dispatcher={updateState}
+                style={'validated-day'}
+                valid={valid}
+                name={'Day'}
+                dropDown={() => ageUtils.getDays()}
+                data={date.day} />
+
+            <ValidatedDateSelector
+                dispatcher={updateState}
+                style={'validated-month'}
+                valid={valid}
+                name={'Month'}
+                dropDown={() => ageUtils.getMonths()}
+                data={date.month} />
+
+            <ValidatedDateSelector
+                dispatcher={updateState}
+                style={'validated-year'}
+                valid={valid}
+                name={'Year'}
+                dropDown={() => ageUtils.getYears()}
+                data={date.year} />
         </div>
     );
 };
