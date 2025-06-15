@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { StyledInputBox, StyledInputLabel } from "./StyledInput";
 import { InputChangeEvent, determineValidatedTextLabel } from "../../utils";
+import "./validatedInput.css";
+import { Theme } from "../../config";
 
 interface ValidatedTextInputProps {
     label: string;
@@ -14,7 +16,7 @@ export const ValidatedTextInput: React.FC<ValidatedTextInputProps> = ({ data, va
     const [value, setValue] = useState(data || "");
     const [borderActive, setBorderActive] = useState(false);
     const [labelActive, setLabelActive] = useState(false);
-    const [color, setColor] = useState('gray');
+    const [color, setColor] = useState(Theme.twitterThemeColors.fg.inactive);
 
     useEffect(() => {
         if (value && !labelActive) {
@@ -38,16 +40,22 @@ export const ValidatedTextInput: React.FC<ValidatedTextInputProps> = ({ data, va
     }
 
     return (
-        <div className="validated-text-input" >
+        <div className="validated-input" >
             <StyledInputBox $active={borderActive} $valid={valid}>
-                <StyledInputLabel color={color} $active={labelActive} $valid={valid}>
+                <StyledInputLabel color={color}
+                                  $active={labelActive}
+                                  $valid={valid}
+                                  htmlFor={name}
+                                  className="mobile toggles">
                     {label}
                 </StyledInputLabel>
-                <input
-                    className='validated-input-value'
-                    name={name} onFocus={focus}
-                    onChange={update} onBlur={focus}
-                    value={data}
+                <input className="toggles mobile validated-input-value"
+                       name={name}
+                       onFocus={focus}
+                       onChange={update}
+                       onBlur={focus}
+                       value={data}
+                       id={name}
                 />
             </StyledInputBox>
         </div>

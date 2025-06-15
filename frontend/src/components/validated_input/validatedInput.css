@@ -1,21 +1,24 @@
 .validated-input {
-    height: fit-content;
 }
 
 .validated-input-value {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    width: 90%;
     line-height: 26px;
     font-size: 20px;
     font-weight: 300;
-    background-color: rgba(256, 256, 256, 0);
+    background-color: var(--twitter-theme-bg-primary-color);
     border: none;
-    z-index: 5;
+    color: var(--twitter-theme-text-color);
+    width: 60%;
 }
-
+ 
 .validated-input-value:focus {
     outline: none;
     border: none;
+}
+
+.validated-date-selector {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
 }

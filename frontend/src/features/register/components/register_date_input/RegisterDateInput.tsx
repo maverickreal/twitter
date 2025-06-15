@@ -25,7 +25,7 @@ export const RegisterDateInput: React.FC<RegisterDateInputProps> = ({ date }) =>
     }, [state.dateOfBirth.day, state.dateOfBirth.month, state.dateOfBirth.year, state.dateOfBirthValid, valid]);
 
     return (
-        <div className="register-date">
+        <>
             <ValidatedDateSelector
                 dispatcher={updateState}
                 style={'validated-day'}
@@ -49,6 +49,6 @@ export const RegisterDateInput: React.FC<RegisterDateInputProps> = ({ date }) =>
                 name={'Year'}
                 dropDown={() => ageUtils.getYears()}
                 data={date.year} />
-        </div>
+        </>
     );
 };

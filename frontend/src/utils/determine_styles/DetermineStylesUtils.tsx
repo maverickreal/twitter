@@ -1,13 +1,14 @@
+import { Theme } from "../../config";
 import { StyledInputPropsInterface } from "../index";
 
 export const determineStyledInputBorder = (props: StyledInputPropsInterface): string => {
     const { $active, $valid, theme } = props;
-    let color = theme.colors.error;
+    let color = theme.twitterThemeColors.fg.error;
 
     if ($active && $valid) {
-        color = theme.colors.blue;
+        color = theme.twitterThemeColors.fg.primary;
     } else if (!$active && $valid) {
-        color = theme.colors.gray;
+        color = theme.twitterThemeColors.fg.inactive;
     }
     let size = $active ? 2 : 1;
 
@@ -17,63 +18,33 @@ export const determineStyledInputBorder = (props: StyledInputPropsInterface): st
 export const determineLabelColor = (props: StyledInputPropsInterface): string => {
     const { theme, color } = props;
 
-    if (color === 'error') {
-        return theme.colors.error;
+    if (color === Theme.twitterThemeColors.fg.error) {
+        return theme.twitterThemeColors.fg.error;
     }
 
-    if (color === 'blue') {
-        return theme.colors.blue;
+    if (color === Theme.twitterThemeColors.fg.primary) {
+        return theme.twitterThemeColors.fg.primary;
     }
 
-    return theme.colors.gray;
+    return theme.twitterThemeColors.fg.inactive;
 }
-
-/*export const determineValidatedStyles = (state: validatedInputStateInterface, validator: (value: string) => boolean) => {
-    let { valid, active, typedIn, value, labelColor, labelActive } = state;
-    if (typedIn) {
-        valid = validator(value);
-        if (active && valid) {
-            labelColor = 'blue';
-            labelActive = true;
-        } else if (active && !valid) {
-            labelColor = 'error';
-            labelActive = true;
-        } else if (!active && valid) {
-            labelColor = 'gray';
-            labelActive = true;
-        } else {
-            labelColor = 'gray';
-            labelActive = false;
-        }
-    } else {
-        if (active) {
-            labelActive = true;
-            labelColor = 'blue';
-        } else {
-            labelActive = false;
-            labelColor = 'gray';
-        }
-    }
-    state = { ...state, valid, labelColor, labelActive };
-    return state;
-}*/ // ??? need or not
 
 export const determineValidatedSelectStyle = (active: boolean, valid: boolean): string => {
     if (!valid) {
-        return 'error';
+        return Theme.twitterThemeColors.fg.error;
     }
 
     if (active) {
-        return 'blue';
+        return Theme.twitterThemeColors.fg.primary;
     }
 
-    return 'gray';
+    return Theme.twitterThemeColors.fg.inactive;
 }
 
 export const determineValidatedTextLabel = (active: boolean, valid: boolean): string => {
     if (active) {
-        return (valid ? 'blue' : 'error');
+        return (valid ? Theme.twitterThemeColors.fg.primary : Theme.twitterThemeColors.fg.error);
     }
 
-    return 'gray';
+    return Theme.twitterThemeColors.fg.inactive;
 }

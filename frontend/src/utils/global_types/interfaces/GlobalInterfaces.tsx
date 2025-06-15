@@ -1,21 +1,32 @@
-interface ThemeColorsInterface {
-    blue: string;
-    black: string;
-    darkGray: string;
-    lightGray: string;
-    white: string;
-    gray: string;
+interface TwitterThemeColorsFgInterface {
+    primary: string;
     error: string;
+    warning: string;
+    success: string;
+    info: string;
+    inactive: string;
+    off: string;
 };
 
-export interface ThemeInterface {
-    colors: ThemeColorsInterface;
+interface TwitterThemeColorsBgInterface {
+    primary: string;
+    backdrop: string;
+};
+
+interface TwitterThemeColorsInterface {
+    fg: TwitterThemeColorsFgInterface;
+    text: string;
+    bg: TwitterThemeColorsBgInterface;
+};
+
+export interface TwitterThemeInterface {
+    twitterThemeColors: TwitterThemeColorsInterface;
 };
 
 export interface StyledInputPropsInterface {
     $active: boolean;
     $valid: boolean;
-    theme: ThemeInterface;
+    theme: TwitterThemeInterface;
     color?: string;
 };
 
@@ -37,5 +48,5 @@ export interface DateInterface {
 export interface StyledNextButtonProps {
     $active: boolean;
     color: string;
-    theme: ThemeInterface;
+    theme: TwitterThemeInterface;
 };

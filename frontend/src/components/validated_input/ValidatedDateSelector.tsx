@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { StyledInputBox, StyledInputLabel } from "./StyledInput";
 import { determineValidatedSelectStyle } from "../../utils/determine_styles/DetermineStylesUtils";
+import "./validatedInput.css";
+import { Theme } from "../../config";
+import { ExpandMoreRounded } from "@mui/icons-material";
 
 interface ValidatedDateSelectorProps {
     style: string;
@@ -12,11 +15,11 @@ interface ValidatedDateSelectorProps {
 };
 
 export const ValidatedDateSelector: React.FC<ValidatedDateSelectorProps> = (
-    { data, style, name, valid, dropDown, dispatcher }
+    { data, name, valid, dropDown, dispatcher }
 ): JSX.Element => {
     const [active, setActive] = useState(false);
     const [value, setValue] = useState(0);
-    const [color, setColor] = useState('gray');
+    const [color, setColor] = useState(Theme.twitterThemeColors.fg.inactive);
 
     const changeValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setValue(+e.target.value);
@@ -34,18 +37,29 @@ export const ValidatedDateSelector: React.FC<ValidatedDateSelectorProps> = (
     }, [active, valid, value]);
 
     return (
-        <div className={style}>
+        <div className="validated-input">
             <StyledInputBox $active={active} $valid={valid}>
-                <StyledInputLabel color={color} $active={true} $valid={valid}>
+                <StyledInputLabel color={color}
+                    $active={true}
+                    $valid={valid}
+                    className="mobile">
                     {name}
+                    <select className="mobile validated-input-value validated-date-selector"
+                        onChange={changeValue}
+                        onFocus={toggleValue}
+                        onBlur={toggleValue}
+                        value={data}>
+                        {dropDown()}
+                    </select>
+                    <ExpandMoreRounded sx={{
+                        fontSize: 34,
+                        color: (active ? Theme.twitterThemeColors.fg.primary : Theme.twitterThemeColors.fg.inactive),
+                        position: "absolute",
+                        top: "25%",
+                        right: "0"
+                    }}>
+                    </ExpandMoreRounded>
                 </StyledInputLabel>
-                <select className="validated-input-value text-color"
-                    onChange={changeValue}
-                    onFocus={toggleValue}
-                    onBlur={toggleValue}
-                    value={data}>
-                    {dropDown()}
-                </select>
             </StyledInputBox>
         </div>
     )

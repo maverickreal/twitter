@@ -4,10 +4,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 .modal-container {
-    height: 40.5em;
-    width: 37em;
-    border-radius: 1.25em;
+    width: 30%;
+    border-radius: 4%;
+    background-color: var(--twitter-theme-bg-primary-color);
+    padding: 1%;
 }

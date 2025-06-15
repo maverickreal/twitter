@@ -1,5 +1,4 @@
-import './modal.css';
-import '../../../index.css';
+import "./modal.css";
 
 interface ModalProps {
     children: React.ReactNode;
@@ -8,7 +7,7 @@ interface ModalProps {
 export const Modal: React.FC<ModalProps> = props => {
     return (
         <div className="modal-overlay">
-            <div className="modal-container bg-color">
+            <div className="modal-container">
                 {props.children}
             </div>
         </div>

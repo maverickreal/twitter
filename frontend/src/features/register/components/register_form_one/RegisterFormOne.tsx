@@ -6,11 +6,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/store';
 import { incrementStep } from '../../../../redux/slices/RegisterSlice';
-
-// interface FormOneState {
-//     firstName: string, lastName: string,
-//     email: string, dateOfBirth: string
-// }
+import { Theme } from "../../../../config";
 
 export const RegisterFormOne = (): JSX.Element => {
     const [buttonActive, setButtonActive] = useState(false);
@@ -32,14 +28,16 @@ export const RegisterFormOne = (): JSX.Element => {
 
     return (
         <div className="reg-step-one-container">
-            <RegisterNameInputs
-                firstName={registerState.firstName}
-                lastName={registerState.lastName} />
-            <RegisterEmailInput email={registerState.email} />
-            <RegisterDateInput date={registerState.dateOfBirth} />
+            <div className="reg-step-one-content">
+                <RegisterNameInputs
+                    firstName={registerState.firstName}
+                    lastName={registerState.lastName} />
+                <RegisterEmailInput email={registerState.email} />
+                <RegisterDateInput date={registerState.dateOfBirth} />
+            </div>
             <StyledNextButton
                 disabled={!buttonActive}
-                color={"black"}
+                color={Theme.twitterThemeColors.fg.off}
                 $active={buttonActive}
                 onClick={nextPage}>
                 Next
